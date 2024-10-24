@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Appliquer le style global
     document.body.style.fontFamily = 'Arial, sans-serif';
+    
     document.body.style.backgroundColor = '#f4f4f4';
     document.body.style.margin = '0';
     document.body.style.padding = '20px';
@@ -23,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
     app.style.maxWidth = '400px';
     app.style.border =  '5px solid #000000';
     app.style.width = '100%';
-    app.style.padding = '20px';
+    app.style.padding = '50px';
     app.style.borderRadius = '10px';
     app.style.backgroundColor = 'white';
     app.style.boxShadow = '0 0 10px rgba(0,0,0,0.1)';
@@ -36,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const avatar = document.createElement('img');
     // Remplacer l'image souhaitée
-    avatar.url = 'https://www.freeiconspng.com/uploads/contact-icon-png-1.png'; 
+    avatar.src = 'https://www.freeiconspng.com/uploads/contact-icon-png-1.png'; 
     avatar.alt = 'Avatar';
     avatar.style.width = '100px';
     avatar.style.margin = '20px auto';
@@ -55,13 +56,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Appliquer les styles du formulaire
     formAddContact.style.backgroundColor = '#dedcdc'; 
-    formAddContact.style.padding = '20px';
+    formAddContact.style.padding = '30px';
     formAddContact.style.borderRadius = '5px';
 
     const inputs = formAddContact.querySelectorAll('input');
     inputs.forEach(input => {
-        input.style.width = '100%';
-        input.style.padding = '10px';
+        input.style.width = '95%';
+        input.style.padding = '7px';
         input.style.margin = '10px 0';
         input.style.border = '1px solid #d32f2f';
         input.style.borderRadius = '5px';
@@ -70,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const submitButton = formAddContact.querySelector('button');
-    submitButton.style.width = '100%';
+    submitButton.style.width = '75%';
     submitButton.style.padding = '10px';
     submitButton.style.margin = '10px 0';
     submitButton.style.border = 'none';
