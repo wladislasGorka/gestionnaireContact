@@ -1,0 +1,17 @@
+<contacts>
+    <contact>
+        <nom>Aymare</nom>
+        <prenom>Jean</prenom>
+        <numero>06 85 45 69 95</numero>
+    </contact>
+    <contact>
+        <nom>Ricault</nom>
+        <prenom>Léa</prenom>
+        <numero>07 35 32 78 65</numero>
+    </contact>
+    <contact>
+        <nom>Zetteaufré</nom>
+        <prenom>Mélanie</prenom>
+        <numero>07 35 78 46 22</numero>
+    </contact>
+</contacts>
