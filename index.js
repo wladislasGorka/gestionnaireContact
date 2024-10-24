@@ -25,11 +25,6 @@ async function monXMLParser(url) {
     }
 }
 
-monXMLParser("contacts.xml");
-console.log(contactsArray);
-
-setTimeout(()=>createListeContacts(),20);
-
 function createListeContacts(){
     //creation du container
     const contactsContainer = document.createElement("section");
@@ -54,3 +49,22 @@ function createListeContacts(){
     // Le container est ajouté au body
     document.body.appendChild(contactsContainer);
 }
+
+function createNbContacts(){
+    //creation du container
+    const nbContactsContainer = document.createElement("section");
+    nbContactsContainer.setAttribute("id", "nbContactsContainer");
+
+    const nbContact = document.createElement("p");
+    nbContact.innerHTML = "Vous avez "+contactsArray.length+" contacts";
+
+    nbContactsContainer.appendChild(nbContact);
+
+    // Le container est ajouté au body
+    document.body.appendChild(nbContactsContainer);
+}
+
+monXMLParser("contacts.xml");
+
+setTimeout(()=>createListeContacts(),20);
+setTimeout(()=>createNbContacts(),20);
