@@ -133,12 +133,12 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderContactCount() {
         contentDisplay.innerHTML = ''; // Vider le contenu précédent
         const countContainer = document.createElement('div');
-        countContainer.style.backgroundColor = '#f0f0f0'; // Fond gris clair
+        countContainer.style.backgroundColor = '#f0f0f0';
         countContainer.style.padding = '20px';
         countContainer.style.borderRadius = '5px';
 
         const countTitle = document.createElement('h3');
-        countTitle.innerHTML = `Vous avez <strong style="color: #d32f2f;">${contacts.length}</strong> contacts`; // Nombre en rouge spécifique
+        countTitle.innerHTML = `Vous avez <strong style="color: #d32f2f;">${contacts.length}</strong> contacts`; 
         countContainer.appendChild(countTitle);
         contentDisplay.appendChild(countContainer);
     }
