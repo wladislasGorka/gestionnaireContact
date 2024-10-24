@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const avatar = document.createElement('img');
     // Remplacer l'image souhaitée
-    avatar.src = 'https://via.placeholder.com/100'; 
+    avatar.url = 'https://www.freeiconspng.com/uploads/contact-icon-png-1.png'; 
     avatar.alt = 'Avatar';
     avatar.style.width = '100px';
     avatar.style.margin = '20px auto';
