@@ -195,13 +195,24 @@ document.addEventListener('DOMContentLoaded', () => {
         const contactsContainer = document.createElement("section");
         contactsContainer.setAttribute("id", "contactsContainer");
     
+        contactsContainer.style.backgroundColor = '#f0f0f0';
+        contactsContainer.style.padding = '20px';
+        contactsContainer.style.borderRadius = '5px';
+
+        const listTitle = document.createElement('h3');
+        listTitle.innerText = 'Liste de vos contacts';
+        listTitle.style.color = '#d32f2f'; // Titre en rouge spécifique
+        contactsContainer.appendChild(listTitle);
+
         // Boucle pour créer chaque contact
         for(let i=0; i<contactsArray.length; i++){
             const contactContainer = document.createElement("section");
             contactContainer.setAttribute("class", "contact");
             // Elements p pour contenir les informations du contact
             const contactNom = document.createElement("p");
+            contactNom.style.marginBottom = '10px';
             const contactNum = document.createElement("p");
+            contactNum.style.marginBottom = '10px';
             // On donne les valeurs
             contactNom.innerHTML = "- "+contactsArray[i]['nom']+" "+contactsArray[i]['prenom'];
             contactNum.innerHTML = "- "+contactsArray[i]['numero'];
@@ -222,9 +233,13 @@ document.addEventListener('DOMContentLoaded', () => {
         //creation du container
         const nbContactsContainer = document.createElement("section");
         nbContactsContainer.setAttribute("id", "nbContactsContainer");
+
+        nbContactsContainer.style.backgroundColor = '#f0f0f0'; // Fond gris clair
+        nbContactsContainer.style.padding = '20px';
+        nbContactsContainer.style.borderRadius = '5px';
     
         const nbContact = document.createElement("p");
-        nbContact.innerHTML = "Vous avez "+contactsArray.length+" contacts";
+        nbContact.innerHTML = `Vous avez <strong style="color: #d32f2f;">${contactsArray.length}</strong> contacts`;
     
         nbContactsContainer.appendChild(nbContact);
     
@@ -233,11 +248,12 @@ document.addEventListener('DOMContentLoaded', () => {
         contentDisplay.appendChild(nbContactsContainer);
     }
 
-    async function loadPage() {
-        await monXMLParser("contacts.xml");
-        //createListeContacts();
-        //createNbContacts();
-    }
-    
-    loadPage();
+    // async function loadPage() {
+    //     await monXMLParser("contacts.xml");
+    //     //createListeContacts();
+    //     //createNbContacts();
+    // }    
+    //loadPage();
+
+    monXMLParser("contacts.xml");
 });
