@@ -190,6 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     function createListeContacts(){
+        contentDisplay.innerHTML = '';
         //creation du container
         const contactsContainer = document.createElement("section");
         contactsContainer.setAttribute("id", "contactsContainer");
@@ -209,12 +210,15 @@ document.addEventListener('DOMContentLoaded', () => {
             contactContainer.appendChild(contactNum);
             // Le contact est ajouté au container
             contactsContainer.appendChild(contactContainer);
+            
         }
         // Le container est ajouté au body
-        document.body.appendChild(contactsContainer);
+        //document.body.appendChild(contactsContainer);
+        contentDisplay.appendChild(contactsContainer);
     }
     
     function createNbContacts(){
+        contentDisplay.innerHTML = '';
         //creation du container
         const nbContactsContainer = document.createElement("section");
         nbContactsContainer.setAttribute("id", "nbContactsContainer");
@@ -225,7 +229,8 @@ document.addEventListener('DOMContentLoaded', () => {
         nbContactsContainer.appendChild(nbContact);
     
         // Le container est ajouté au body
-        document.body.appendChild(nbContactsContainer);
+        //document.body.appendChild(nbContactsContainer);
+        contentDisplay.appendChild(nbContactsContainer);
     }
 
     async function loadPage() {
