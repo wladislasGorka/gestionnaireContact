@@ -30,8 +30,9 @@ document.addEventListener('DOMContentLoaded', () => {
     title.style.color = '#d32f2f'; 
     app.insertBefore(title, selectAction);
 
-    const avatar = document.createElement('img');
     //  l'image et le style
+    const avatar = document.createElement('img');
+
     avatar.src = 'https://www.freeiconspng.com/uploads/contact-icon-png-1.png'; 
     avatar.alt = 'Avatar';
     avatar.style.width = '100px';
