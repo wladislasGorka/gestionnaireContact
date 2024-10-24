@@ -38,8 +38,8 @@ function createListeContacts(){
         const contactNom = document.createElement("p");
         const contactNum = document.createElement("p");
         // On donne les valeurs
-        contactNom.innerHTML = contactsArray[i]['nom']+" "+contactsArray[i]['prenom'];
-        contactNum.innerHTML = contactsArray[i]['numero'];
+        contactNom.innerHTML = "- "+contactsArray[i]['nom']+" "+contactsArray[i]['prenom'];
+        contactNum.innerHTML = "- "+contactsArray[i]['numero'];
         // les elements p sont ajouté à l'élément contact
         contactContainer.appendChild(contactNom);
         contactContainer.appendChild(contactNum);
