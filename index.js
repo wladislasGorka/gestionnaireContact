@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     formAddContact.style.display = 'none';
 
     // Appliquer les styles du formulaire
-    formAddContact.style.backgroundColor = '#f0f0f0'; 
+    formAddContact.style.backgroundColor = '#dedcdc'; 
     formAddContact.style.padding = '20px';
     formAddContact.style.borderRadius = '5px';
 
