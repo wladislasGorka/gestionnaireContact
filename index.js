@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.height = '100vh';
 
     app.style.maxWidth = '400px';
+    app.style.border =  '3px solid #000000';
     app.style.width = '100%';
     app.style.padding = '20px';
     app.style.borderRadius = '10px';
