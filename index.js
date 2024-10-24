@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const submitButton = formAddContact.querySelector('button');
-    submitButton.style.width = '75%';
+    submitButton.style.width = '78%';
     submitButton.style.padding = '10px';
     submitButton.style.margin = '10px 0';
     submitButton.style.border = 'none';
