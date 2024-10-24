@@ -30,15 +30,16 @@ document.addEventListener('DOMContentLoaded', () => {
     title.style.color = '#d32f2f'; 
     app.insertBefore(title, selectAction);
 
+    //  l'image et le style
     const avatar = document.createElement('img');
-    // Remplacer l'image souhaitée
-    avatar.src = 'https://via.placeholder.com/100'; 
+
+    avatar.src = 'https://www.freeiconspng.com/uploads/contact-icon-png-1.png'; 
     avatar.alt = 'Avatar';
     avatar.style.width = '100px';
     avatar.style.margin = '20px auto';
     avatar.style.display = 'block';
     app.insertBefore(avatar, selectAction);
-
+    // fin style image 
     selectAction.style.width = '100%';
     selectAction.style.padding = '10px';
     selectAction.style.margin = '10px 0';
