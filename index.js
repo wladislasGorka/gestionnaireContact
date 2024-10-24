@@ -217,10 +217,12 @@ document.addEventListener('DOMContentLoaded', () => {
         contentDisplay.appendChild(contactsContainer);
     }
 
+    // FORMULAIRE
     function createContact(){
         contentDisplay.innerHTML = '';
 
-        const formContainer = document.getElementById('formulaire');
+        const formContainer = document.createElement('section');
+        formContainer.setAttribute("id", "formulaire");
         const br1 = document.createElement('br');
         const br2 = document.createElement('br');
         const br3 = document.createElement('br');
