@@ -1,12 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestionnaire de Contact</title>
+    <title>Gestionnaire de Contacts</title>
 </head>
 <body>
-    
-    <script src="index.js"></script>
+    <div id="app">
+        <select id="actionSelect">
+            <option value="">Que voulez-vous faire ?</option>
+            <option value="list">Lister les contacts</option>
+            <option value="add">Ajouter un contact</option>
+            <option value="count">Voir le nombre de contacts</option>
+        </select>
+
+        <form id="addContactForm" style="display:none;">
+            <input type="text" id="inputNom" placeholder="Nom" required>
+            <input type="text" id="inputPrenom" placeholder="Prénom" required>
+            <input type="text" id="inputTel" placeholder="Numéro" required>
+            <button type="submit">Valider</button>
+        </form>
+
+        <div id="contentDisplay"></div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
