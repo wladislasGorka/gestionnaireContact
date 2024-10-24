@@ -64,7 +64,14 @@ function createNbContacts(){
     document.body.appendChild(nbContactsContainer);
 }
 
-monXMLParser("contacts.xml");
+async function loadPage() {
+    await monXMLParser("contacts.xml");
+    createListeContacts();
+    createNbContacts();
+}
 
-setTimeout(()=>createListeContacts(),20);
-setTimeout(()=>createNbContacts(),20);
+loadPage();
+
+
+//setTimeout(()=>createListeContacts(),20);
+//setTimeout(()=>createNbContacts(),20);
