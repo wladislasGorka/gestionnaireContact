@@ -1,8 +1,17 @@
 const formContainer = document.getElementById('formulaire');
-/* formContainer.addEventListener("submit", function(event){
-    event.preventDefault();
-    const contact ={ formContainer.el['name'].value }   
-}); */
+
+
+
+
+
+
+
+
+
+
+
+
+
 const br1 = document.createElement('br');
 const br2 = document.createElement('br');
 const br3 = document.createElement('br');
@@ -21,24 +30,32 @@ label3.innerHTML='Numéro';
 
 // Créer un élément de formulaire
 const form = document.createElement('form');
+
 form.setAttribute('method', 'post');
-//form.setAttribute('action', '#');
+form.addEventListener("submit", function(event){
+    event.preventDefault();
+    const contactNom = document.getElementById("nom").value;
+    const contactPrenom = document.getElementById("prenom").value;
+    const contactNumero = document.getElementById("numero").value;
+    const contact= { nom: contactNom , prenom :  contactPrenom , numero: contactNumero }
+    console.log(contact)
+}); 
 
 // Créer un champ de texte
 const inputNom = document.createElement('input');
 inputNom.setAttribute('type', 'text');
-inputNom.setAttribute('name', 'Nom');
+inputNom.setAttribute('id', 'nom');
 
 
 // Créer un champ de mot de passe
 const inputPrenom = document.createElement('input');
 inputPrenom.setAttribute('type', 'text');
-inputPrenom.setAttribute('name', 'Prénom');
+inputPrenom.setAttribute('id', 'prenom');
 
 
 const inputNumero = document.createElement('input');
 inputNumero.setAttribute('type', 'text');
-inputNumero.setAttribute('name', 'Numéro');
+inputNumero.setAttribute('id', 'numero');
 // Créer un bouton de soumission
 const submitButton = document.createElement('button');
 submitButton.setAttribute('type', 'submit');
