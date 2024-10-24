@@ -31,14 +31,14 @@ document.addEventListener('DOMContentLoaded', () => {
     app.insertBefore(title, selectAction);
 
     const avatar = document.createElement('img');
-    // Remplacer l'image souhaitée
+    //  l'image et le style
     avatar.src = 'https://www.freeiconspng.com/uploads/contact-icon-png-1.png'; 
     avatar.alt = 'Avatar';
     avatar.style.width = '100px';
     avatar.style.margin = '20px auto';
     avatar.style.display = 'block';
     app.insertBefore(avatar, selectAction);
-
+    // fin style image 
     selectAction.style.width = '100%';
     selectAction.style.padding = '10px';
     selectAction.style.margin = '10px 0';
