@@ -1,70 +1,4 @@
-function createContact(){
-const formContainer = document.getElementById('formulaire');
-const br1 = document.createElement('br');
-const br2 = document.createElement('br');
-const br3 = document.createElement('br');
-const br4 = document.createElement('br');
-const br5 = document.createElement('br');
-const br6 = document.createElement('br');
-const label1 = document.createElement('label');
-const label2 = document.createElement('label');
-const label3 = document.createElement('label');
-label1.innerHTML='Nom';
-label2.innerHTML='Prénom';
-label3.innerHTML='Numéro';
-// creation formulaire 
-const form = document.createElement('form');
-form.setAttribute('method', 'post');
-form.addEventListener("submit", function(event){
-    event.preventDefault();
-    const contactNom = document.getElementById("nom").value;
-    const contactPrenom = document.getElementById("prenom").value;
-    const contactNumero = document.getElementById("numero").value;
-    const contact= { nom: contactNom , prenom :  contactPrenom , numero: contactNumero }
-   console.log(contact)
-}); 
-// nom
-const inputNom = document.createElement('input');
-inputNom.setAttribute('type', 'text');
-inputNom.setAttribute('id', 'nom');
-// prenom
-const inputPrenom = document.createElement('input');
-inputPrenom.setAttribute('type', 'text');
-inputPrenom.setAttribute('id', 'prenom');
-//numero
-const inputNumero = document.createElement('input');
-inputNumero.setAttribute('type', 'text');
-inputNumero.setAttribute('id', 'numero');
-// Créer un bouton de soumission
-const submitButton = document.createElement('button');
-submitButton.setAttribute('type', 'submit');
-submitButton.textContent = 'Valider';
-// Ajouter les champs au formulaire
-form.appendChild(label1);
-form.appendChild(br1);
-form.appendChild(inputNom);
-form.appendChild(br2);
-form.appendChild(label2);
-form.appendChild(br3);
-form.appendChild(inputPrenom);
-form.appendChild(br4);
-form.appendChild(label3);
-form.appendChild(br5);
-form.appendChild(inputNumero);
-form.appendChild(br6);
-form.appendChild(submitButton);
-// Ajouter le formulaire au conteneur
-formContainer.appendChild(form);
-}
-//createContact();
-
 const contactsArray = [];
-
-
-//setTimeout(()=>createListeContacts(),20);
-//setTimeout(()=>createNbContacts(),20);
-
-//////////////////////////////////////////////////////////////////////////
 
 document.addEventListener('DOMContentLoaded', () => {
     const app = document.getElementById('app');
@@ -72,11 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const formAddContact = document.getElementById('addContactForm');
     const contentDisplay = document.getElementById('contentDisplay');
 
-    // let contacts = [
-    //     { nom: 'Jean Aymare', prenom: 'Jean', tel: '06 85 45 69 95' },
-    //     { nom: 'Léa Ricault', prenom: 'Léa', tel: '06 28 32 78 65' },
-    //     { nom: 'Mélanie Zetteaufré', prenom: 'Mélanie', tel: '07 35 78 46 22' }
-    // ];
 
     // Appliquer le style global
     document.body.style.fontFamily = 'Arial, sans-serif';
@@ -216,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (action === 'list') {
             createListeContacts();
         } else if (action === 'add') {
-            //renderAddContactForm();
+            createContact();
         } else if (action === 'count') {
             createNbContacts();
         } else {
@@ -287,6 +216,69 @@ document.addEventListener('DOMContentLoaded', () => {
         //document.body.appendChild(contactsContainer);
         contentDisplay.appendChild(contactsContainer);
     }
+
+    function createContact(){
+        contentDisplay.innerHTML = '';
+
+        const formContainer = document.getElementById('formulaire');
+        const br1 = document.createElement('br');
+        const br2 = document.createElement('br');
+        const br3 = document.createElement('br');
+        const br4 = document.createElement('br');
+        const br5 = document.createElement('br');
+        const br6 = document.createElement('br');
+        const label1 = document.createElement('label');
+        const label2 = document.createElement('label');
+        const label3 = document.createElement('label');
+        label1.innerHTML='Nom';
+        label2.innerHTML='Prénom';
+        label3.innerHTML='Numéro';
+        // creation formulaire 
+        const form = document.createElement('form');
+        form.setAttribute('method', 'post');
+        form.addEventListener("submit", function(event){
+            event.preventDefault();
+            const contactNom = document.getElementById("nom").value;
+            const contactPrenom = document.getElementById("prenom").value;
+            const contactNumero = document.getElementById("numero").value;
+            const contact= { nom: contactNom , prenom :  contactPrenom , numero: contactNumero }
+        console.log(contact)
+        }); 
+        // nom
+        const inputNom = document.createElement('input');
+        inputNom.setAttribute('type', 'text');
+        inputNom.setAttribute('id', 'nom');
+        // prenom
+        const inputPrenom = document.createElement('input');
+        inputPrenom.setAttribute('type', 'text');
+        inputPrenom.setAttribute('id', 'prenom');
+        //numero
+        const inputNumero = document.createElement('input');
+        inputNumero.setAttribute('type', 'text');
+        inputNumero.setAttribute('id', 'numero');
+        // Créer un bouton de soumission
+        const submitButton = document.createElement('button');
+        submitButton.setAttribute('type', 'submit');
+        submitButton.textContent = 'Valider';
+        // Ajouter les champs au formulaire
+        form.appendChild(label1);
+        form.appendChild(br1);
+        form.appendChild(inputNom);
+        form.appendChild(br2);
+        form.appendChild(label2);
+        form.appendChild(br3);
+        form.appendChild(inputPrenom);
+        form.appendChild(br4);
+        form.appendChild(label3);
+        form.appendChild(br5);
+        form.appendChild(inputNumero);
+        form.appendChild(br6);
+        form.appendChild(submitButton);
+        // Ajouter le formulaire au conteneur
+        formContainer.appendChild(form);
+
+        contentDisplay.appendChild(formContainer);
+    }
     
     function createNbContacts(){
         contentDisplay.innerHTML = '';
@@ -307,13 +299,6 @@ document.addEventListener('DOMContentLoaded', () => {
         //document.body.appendChild(nbContactsContainer);
         contentDisplay.appendChild(nbContactsContainer);
     }
-
-    // async function loadPage() {
-    //     await monXMLParser("contacts.xml");
-    //     //createListeContacts();
-    //     //createNbContacts();
-    // }    
-    //loadPage();
 
     monXMLParser("contacts.xml");
 });
