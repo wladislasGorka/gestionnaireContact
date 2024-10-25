@@ -31,8 +31,7 @@ function createApp(){
     const contentDisplayElement = document.createElement('section');
     contentDisplayElement.setAttribute('id', 'contentDisplay');
 
-    // Menu déroulant
-    // OPTION 1  
+    // OPTION 1
     const option1 = document.createElement('option');
     option1.setAttribute('value', " ");
     option1.innerHTML = "Que voulez-vous faire ?";
@@ -56,20 +55,6 @@ function createApp(){
     appElement.appendChild(selectActionElement);
     appElement.appendChild(contentDisplayElement);
     document.body.appendChild(appElement);
-
-     // Gérer le changement d'option dans le menu déroulant
-     selectAction.addEventListener('change', (e) => {
-        const action = e.target.value;
-        if (action === 'list') {
-            createListeContacts();
-        } else if (action === 'add') {
-            createContact();
-        } else if (action === 'count') {
-            createNbContacts();
-        } else {
-            contentDisplay.innerHTML = ''; 
-        }
-    });
 
     const app = document.getElementById('app');
     const selectAction = document.getElementById('actionSelect');
@@ -116,11 +101,26 @@ function createApp(){
     selectAction.style.backgroundColor = '#d32f2f'; 
     selectAction.style.color = '#fff';
 
-    async function monXMLParser(url) {
-        try{
-            const reponse = await fetch(url);
-            //console.log(reponse);
-    
+    // Gérer le changement d'option dans le menu déroulant
+    selectAction.addEventListener('change', (e) => {
+        const action = e.target.value;
+        if (action === 'list') {
+            createListeContacts();
+        } else if (action === 'add') {
+            createContact();
+        } else if (action === 'count') {
+            createNbContacts();
+        } else {
+            contentDisplay.innerHTML = ''; 
+        }
+    });
+}    
+
+async function monXMLParser(url) {
+    try{
+        const reponse = await fetch(url);
+        //console.log(reponse);
+
         if(!reponse.ok) throw new Error("Le fichier XML n'a pu être trouvé");
         const xmlText = await reponse.text();
         //console.log(xmlText);
