@@ -14,9 +14,4 @@
     <prenom>Mélanie</prenom>
     <numero>07 35 78 46 22</numero>
   </contact>
-  <contact>
-    <nom>Dupont</nom>
-    <prenom>Jean</prenom>
-    <numero>06 12 23 41 24</numero>
-  </contact>
 </contacts>

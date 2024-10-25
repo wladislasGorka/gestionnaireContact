@@ -199,6 +199,14 @@ function createListeContacts(){
     contentDisplay.appendChild(contactsContainer);
 }
 
+// Supprimer un contact
+function supprimerContact(i){
+    contactsArray.splice(i, 1);
+    writeXML(contactsArray);
+
+    createListeContacts();
+}
+
 // FORMULAIRE
 function createContact(){
     contentDisplay.innerHTML = '';
