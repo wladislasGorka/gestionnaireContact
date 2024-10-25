@@ -196,19 +196,25 @@ document.addEventListener('DOMContentLoaded', () => {
             contactsArray.push(contact);
             console.log(contactsArray);
             writeXML(contactsArray);
+
+            // Retour a la liste des contacts apres ajout
+            createListeContacts();
         }); 
         // nom
         const inputNom = document.createElement('input');
         inputNom.setAttribute('type', 'text');
         inputNom.setAttribute('id', 'nom');
+        inputNom.setAttribute('required', '');
         // prenom
         const inputPrenom = document.createElement('input');
         inputPrenom.setAttribute('type', 'text');
         inputPrenom.setAttribute('id', 'prenom');
+        inputPrenom.setAttribute('required', '');
         //numero
         const inputNumero = document.createElement('input');
         inputNumero.setAttribute('type', 'text');
         inputNumero.setAttribute('id', 'numero');
+        inputNumero.setAttribute('required', '');
         // Créer un bouton de soumission
         const submitButton = document.createElement('button');
         submitButton.setAttribute('type', 'submit');
