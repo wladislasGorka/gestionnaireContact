@@ -105,15 +105,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const parser = new DOMParser();
             const xmlDoc = parser.parseFromString(xmlText,"text/xml");
             //console.log(xmlDoc);
-    
-            const contacts = [...xmlDoc.querySelectorAll("contact")];
+            //console.log(xmlDoc.querySelectorAll("contact"));
+            const contacts = xmlDoc.querySelectorAll("contact");
+            //console.log(contacts);
             contacts.forEach((contact) => {
                 contactsArray.push({
                     nom: contact.querySelector("nom").textContent,
                     prenom: contact.querySelector("prenom").textContent,
                     numero: contact.querySelector("numero").textContent,
                 })
-            });   
+            });
         }catch(error){
             console.log(error);
         }
@@ -185,6 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // creation formulaire 
         const form = document.createElement('form');
         form.setAttribute('method', 'post');
+        // Event Listener
         form.addEventListener("submit", function(event){
             event.preventDefault();
             const contactNom = document.getElementById("nom").value;
@@ -192,7 +194,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const contactNumero = document.getElementById("numero").value;
             const contact = { nom: contactNom , prenom :  contactPrenom , numero: contactNumero };
             contactsArray.push(contact);
-            console.log(contact)
+            console.log(contactsArray);
+            writeXML(contactsArray);
         }); 
         // nom
         const inputNom = document.createElement('input');
@@ -278,4 +281,32 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     monXMLParser("contacts.xml");
+
+    // Fonction pour convertir un tableau d'objets en XML
+    function convertToXML(array) {
+        let xml = '<contacts>\n';
+
+        array.forEach(contact => {
+            xml += '  <contact>\n';
+            xml += `    <nom>${contact.nom}</nom>\n`;
+            xml += `    <prenom>${contact.prenom}</prenom>\n`;
+            xml += `    <numero>${contact.numero}</numero>\n`;
+            xml += '  </contact>\n';
+        });
+
+        xml += '</contacts>';
+        return xml;
+    }
+
+    function writeXML(array){
+        const xmlContent = convertToXML(array);
+
+        fetch('http://localhost:3000/write-xml', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'text/plain',
+            },
+            body: xmlContent,
+        });
+    }
 });
