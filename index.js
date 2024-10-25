@@ -1,5 +1,6 @@
 const contactsArray = [];
 
+// DOM
 document.addEventListener('DOMContentLoaded', () => {
     
     // Création des containers et du menu
@@ -10,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const contentDisplayElement = document.createElement('section');
     contentDisplayElement.setAttribute('id', 'contentDisplay');
 
+     // Menu déroulant avec toutes les options
     // OPTION 1
     const option1 = document.createElement('option');
     option1.setAttribute('value', " ");
@@ -38,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const app = document.getElementById('app');
     const selectAction = document.getElementById('actionSelect');
     const contentDisplay = document.getElementById('contentDisplay');
+    // Fin
 
     // Appliquer le style global
     document.body.style.fontFamily = 'Arial, sans-serif';
@@ -48,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.style.justifyContent = 'center';
     document.body.style.alignItems = 'center';
     document.body.style.height = '100vh';
-
+    // interieur style 
     app.style.maxWidth = '400px';
     app.style.width = '100%';
     app.style.padding = '20px';
@@ -57,11 +60,12 @@ document.addEventListener('DOMContentLoaded', () => {
     app.style.boxShadow = '0 0 10px rgba(0,0,0,0.1)';
     app.style.textAlign = 'center';
 
+    // style titre h1
     const title = document.createElement('h1');
     title.innerText = 'Gestionnaire de contacts';
     title.style.color = '#d32f2f'; 
     app.insertBefore(title, selectAction);
-
+ 
     //  l'image et le style
     const avatar = document.createElement('img');
 
@@ -72,6 +76,8 @@ document.addEventListener('DOMContentLoaded', () => {
     avatar.style.display = 'block';
     app.insertBefore(avatar, selectAction);
     // fin style image 
+
+    // style du select 
     selectAction.style.width = '100%';
     selectAction.style.padding = '10px';
     selectAction.style.margin = '10px 0';
@@ -79,6 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
     selectAction.style.borderRadius = '5px';
     selectAction.style.backgroundColor = '#d32f2f'; 
     selectAction.style.color = '#fff';
+    // fin style select
 
     // Gérer le changement d'option dans le menu déroulant
     selectAction.addEventListener('change', (e) => {
@@ -93,7 +100,9 @@ document.addEventListener('DOMContentLoaded', () => {
             contentDisplay.innerHTML = ''; 
         }
     });
+   // fin du changement mis en action 
 
+   // debut de la funtion xml 
     async function monXMLParser(url) {
         try{
             const reponse = await fetch(url);
@@ -120,20 +129,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    function createListeContacts(){
+    // début funtion creatlistecontacts
+      function createListeContacts(){
         contentDisplay.innerHTML = '';
-        //creation du container
+
+        //creation du container et style
         const contactsContainer = document.createElement("section");
         contactsContainer.setAttribute("id", "contactsContainer");
-    
         contactsContainer.style.backgroundColor = '#f0f0f0';
         contactsContainer.style.padding = '20px';
         contactsContainer.style.borderRadius = '5px';
 
+        // titre h3 liste et style
         const listTitle = document.createElement('h3');
         listTitle.innerText = 'Liste de vos contacts';
-        listTitle.style.color = '#d32f2f'; // Titre en rouge spécifique
+        listTitle.style.color = '#d32f2f'; 
         contactsContainer.appendChild(listTitle);
+        // fin style
 
         // Boucle pour créer chaque contact
         for(let i=0; i<contactsArray.length; i++){
@@ -197,6 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(contactsArray);
             writeXML(contactsArray);
         }); 
+
         // nom
         const inputNom = document.createElement('input');
         inputNom.setAttribute('type', 'text');
@@ -260,8 +273,10 @@ document.addEventListener('DOMContentLoaded', () => {
         submitFormButton.style.cursor = 'pointer';
     }
     
+    // function creatNbContacts avec style
     function createNbContacts(){
         contentDisplay.innerHTML = '';
+
         //creation du container
         const nbContactsContainer = document.createElement("section");
         nbContactsContainer.setAttribute("id", "nbContactsContainer");
