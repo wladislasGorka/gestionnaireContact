@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     icon.src = 'https://www.freeiconspng.com/uploads/contact-icon-png-1.png'; 
     icon.alt = 'Avatar';    
     icon.style.width = '280px';
-    icon.style.cursor = 'pointer';
+    icon.style.cursor = 'url(iconCursor.png), pointer';
 
     document.body.appendChild(icon);
 
@@ -173,10 +173,14 @@ function createListeContacts(){
         contactNum.style.textAlign = 'left';
         contactNum.style.color = '#d32f2f';
 
+        //bouton pour supprimer un contact
         const contactBtnSuppr = document.createElement("input");
+        contactBtnSuppr.setAttribute("id",`btnSuppr${i}`);
         contactBtnSuppr.setAttribute("type","button");
         contactBtnSuppr.setAttribute("value","x");
+        contactBtnSuppr.setAttribute("onclick",`supprimerContact(${i})`);
         contactBtnSuppr.style.marginLeft = "10px";
+
 
         // On donne les valeurs
         //contactNom.innerHTML = "- "+contactsArray[i]['nom']+" "+contactsArray[i]['prenom'];
