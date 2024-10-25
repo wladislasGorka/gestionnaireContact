@@ -1,15 +1,16 @@
 const contactsArray = [];
 
 document.addEventListener('DOMContentLoaded', () => {
+    document.body.style.height = '90vh';
+    document.body.style.display = 'flex';
+    document.body.style.justifyContent = 'center';
+    document.body.style.alignItems = 'center';
+
     const icon = document.createElement('img')
     icon.src = 'https://www.freeiconspng.com/uploads/contact-icon-png-1.png'; 
-    icon.alt = 'Avatar';
-    icon.style.position = 'absolute';
-    icon.style.top = '41%';
-    icon.style.left = '42%';
-    icon.style.width = '100px';
-    icon.style.margin = '20px auto';
-    icon.style.display = 'block';
+    icon.alt = 'Avatar';    
+    icon.style.width = '280px';
+    icon.style.cursor = 'url(iconCursor.png), pointer';
 
     document.body.appendChild(icon);
 
@@ -171,12 +172,23 @@ function createListeContacts(){
         contactNum.style.marginBottom = '15px';
         contactNum.style.textAlign = 'left';
         contactNum.style.color = '#d32f2f';
+
+        //bouton pour supprimer un contact
+        const contactBtnSuppr = document.createElement("input");
+        contactBtnSuppr.setAttribute("id",`btnSuppr${i}`);
+        contactBtnSuppr.setAttribute("type","button");
+        contactBtnSuppr.setAttribute("value","x");
+        contactBtnSuppr.setAttribute("onclick",`supprimerContact(${i})`);
+        contactBtnSuppr.style.marginLeft = "10px";
+
+
         // On donne les valeurs
         //contactNom.innerHTML = "- "+contactsArray[i]['nom']+" "+contactsArray[i]['prenom'];
         contactNom.innerHTML = `- <strong>${contactsArray[i]['nom']} ${contactsArray[i]['prenom']}</strong>`;
         contactNum.innerHTML = "- "+contactsArray[i]['numero'];
         // les elements p sont ajouté à l'élément contact
         contactContainer.appendChild(contactNom);
+        contactNom.appendChild(contactBtnSuppr);
         contactContainer.appendChild(contactNum);
         // Le contact est ajouté au container
         contactsContainer.appendChild(contactContainer);
@@ -185,6 +197,14 @@ function createListeContacts(){
     // Le container est ajouté au body
     //document.body.appendChild(contactsContainer);
     contentDisplay.appendChild(contactsContainer);
+}
+
+// Supprimer un contact
+function supprimerContact(i){
+    contactsArray.splice(i, 1);
+    writeXML(contactsArray);
+
+    createListeContacts();
 }
 
 // FORMULAIRE
