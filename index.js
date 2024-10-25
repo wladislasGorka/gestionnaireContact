@@ -5,9 +5,9 @@ document.addEventListener('DOMContentLoaded', () => {
     icon.src = 'https://www.freeiconspng.com/uploads/contact-icon-png-1.png'; 
     icon.alt = 'Avatar';
     icon.style.position = 'absolute';
-    icon.style.top = '41%';
-    icon.style.left = '42%';
-    icon.style.width = '100px';
+    icon.style.top = '40%';
+    icon.style.left = '40%';
+    icon.style.width = '200px';
     icon.style.margin = '20px auto';
     icon.style.display = 'block';
 
@@ -171,12 +171,19 @@ function createListeContacts(){
         contactNum.style.marginBottom = '15px';
         contactNum.style.textAlign = 'left';
         contactNum.style.color = '#d32f2f';
+
+        const contactBtnSuppr = document.createElement("input");
+        contactBtnSuppr.setAttribute("type","button");
+        contactBtnSuppr.setAttribute("value","x");
+        contactBtnSuppr.style.marginLeft = "10px";
+
         // On donne les valeurs
         //contactNom.innerHTML = "- "+contactsArray[i]['nom']+" "+contactsArray[i]['prenom'];
         contactNom.innerHTML = `- <strong>${contactsArray[i]['nom']} ${contactsArray[i]['prenom']}</strong>`;
         contactNum.innerHTML = "- "+contactsArray[i]['numero'];
         // les elements p sont ajouté à l'élément contact
         contactContainer.appendChild(contactNom);
+        contactNom.appendChild(contactBtnSuppr);
         contactContainer.appendChild(contactNum);
         // Le contact est ajouté au container
         contactsContainer.appendChild(contactContainer);
