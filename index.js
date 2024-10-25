@@ -10,7 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const contentDisplayElement = document.createElement('section');
     contentDisplayElement.setAttribute('id', 'contentDisplay');
 
-    // OPTION 1
+    // Menu déroulant
+    // OPTION 1  
     const option1 = document.createElement('option');
     option1.setAttribute('value', " ");
     option1.innerHTML = "Que voulez-vous faire ?";
@@ -34,6 +35,20 @@ document.addEventListener('DOMContentLoaded', () => {
     appElement.appendChild(selectActionElement);
     appElement.appendChild(contentDisplayElement);
     document.body.appendChild(appElement);
+
+     // Gérer le changement d'option dans le menu déroulant
+     selectAction.addEventListener('change', (e) => {
+        const action = e.target.value;
+        if (action === 'list') {
+            createListeContacts();
+        } else if (action === 'add') {
+            createContact();
+        } else if (action === 'count') {
+            createNbContacts();
+        } else {
+            contentDisplay.innerHTML = ''; 
+        }
+    });
 
     const app = document.getElementById('app');
     const selectAction = document.getElementById('actionSelect');
