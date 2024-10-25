@@ -1,15 +1,16 @@
 const contactsArray = [];
 
 document.addEventListener('DOMContentLoaded', () => {
+    document.body.style.height = '90vh';
+    document.body.style.display = 'flex';
+    document.body.style.justifyContent = 'center';
+    document.body.style.alignItems = 'center';
+
     const icon = document.createElement('img')
     icon.src = 'https://www.freeiconspng.com/uploads/contact-icon-png-1.png'; 
-    icon.alt = 'Avatar';
-    icon.style.position = 'absolute';
-    icon.style.top = '40%';
-    icon.style.left = '40%';
-    icon.style.width = '200px';
-    icon.style.margin = '20px auto';
-    icon.style.display = 'block';
+    icon.alt = 'Avatar';    
+    icon.style.width = '280px';
+    icon.style.cursor = 'pointer';
 
     document.body.appendChild(icon);
 
