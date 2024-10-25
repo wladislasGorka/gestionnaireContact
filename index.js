@@ -2,7 +2,28 @@ const contactsArray = [];
 
 // DOM
 document.addEventListener('DOMContentLoaded', () => {
-    
+    const icon = document.createElement('img')
+    icon.src = 'https://www.freeiconspng.com/uploads/contact-icon-png-1.png'; 
+    icon.alt = 'Avatar';
+    icon.style.position = 'absolute';
+    icon.style.top = '41%';
+    icon.style.left = '42%';
+    icon.style.width = '100px';
+    icon.style.margin = '20px auto';
+    icon.style.display = 'block';
+
+    document.body.appendChild(icon);
+
+    icon.addEventListener('click',(e) => {
+        icon.style.display = 'none';
+        createApp();
+
+    });
+
+    monXMLParser("contacts.xml");    
+});
+
+function createApp(){
     // Création des containers et du menu
     const appElement = document.createElement('section');
     appElement.setAttribute('id', 'app');
@@ -100,9 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
             contentDisplay.innerHTML = ''; 
         }
     });
-   // fin du changement mis en action 
 
-   // debut de la funtion xml 
     async function monXMLParser(url) {
         try{
             const reponse = await fetch(url);
@@ -129,57 +148,54 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    // début funtion creatlistecontacts
-      function createListeContacts(){
+    function createListeContacts(){
         contentDisplay.innerHTML = '';
-
-        //creation du container et style
+        //creation du container
         const contactsContainer = document.createElement("section");
         contactsContainer.setAttribute("id", "contactsContainer");
+    
         contactsContainer.style.backgroundColor = '#f0f0f0';
         contactsContainer.style.padding = '20px';
         contactsContainer.style.borderRadius = '5px';
 
-        // titre h3 liste et style
         const listTitle = document.createElement('h3');
         listTitle.innerText = 'Liste de vos contacts';
-        listTitle.style.color = '#d32f2f'; 
+        listTitle.style.color = '#d32f2f'; // Titre en rouge spécifique
         contactsContainer.appendChild(listTitle);
-        // fin style
 
-        // Boucle pour créer chaque contact
-        for(let i=0; i<contactsArray.length; i++){
-            const contactContainer = document.createElement("section");
-            contactContainer.setAttribute("class", "contact");
-            // Elements p pour contenir les informations du contact
-            const contactNom = document.createElement("p");
-            contactNom.style.margin = '0px';
-            contactNom.style.textAlign = 'left';
-            contactNom.style.color = '#d32f2f';
-            const contactNum = document.createElement("p");
-            contactNum.style.margin = '0px';
-            contactNum.style.marginBottom = '15px';
-            contactNum.style.textAlign = 'left';
-            contactNum.style.color = '#d32f2f';
-            // On donne les valeurs
-            //contactNom.innerHTML = "- "+contactsArray[i]['nom']+" "+contactsArray[i]['prenom'];
-            contactNom.innerHTML = `- <strong>${contactsArray[i]['nom']} ${contactsArray[i]['prenom']}</strong>`;
-            contactNum.innerHTML = "- "+contactsArray[i]['numero'];
-            // les elements p sont ajouté à l'élément contact
-            contactContainer.appendChild(contactNom);
-            contactContainer.appendChild(contactNum);
-            // Le contact est ajouté au container
-            contactsContainer.appendChild(contactContainer);
-            
-        }
-        // Le container est ajouté au body
-        //document.body.appendChild(contactsContainer);
-        contentDisplay.appendChild(contactsContainer);
+    // Boucle pour créer chaque contact
+    for(let i=0; i<contactsArray.length; i++){
+        const contactContainer = document.createElement("section");
+        contactContainer.setAttribute("class", "contact");
+        // Elements p pour contenir les informations du contact
+        const contactNom = document.createElement("p");
+        contactNom.style.margin = '0px';
+        contactNom.style.textAlign = 'left';
+        contactNom.style.color = '#d32f2f';
+        const contactNum = document.createElement("p");
+        contactNum.style.margin = '0px';
+        contactNum.style.marginBottom = '15px';
+        contactNum.style.textAlign = 'left';
+        contactNum.style.color = '#d32f2f';
+        // On donne les valeurs
+        //contactNom.innerHTML = "- "+contactsArray[i]['nom']+" "+contactsArray[i]['prenom'];
+        contactNom.innerHTML = `- <strong>${contactsArray[i]['nom']} ${contactsArray[i]['prenom']}</strong>`;
+        contactNum.innerHTML = "- "+contactsArray[i]['numero'];
+        // les elements p sont ajouté à l'élément contact
+        contactContainer.appendChild(contactNom);
+        contactContainer.appendChild(contactNum);
+        // Le contact est ajouté au container
+        contactsContainer.appendChild(contactContainer);
+        
     }
+    // Le container est ajouté au body
+    //document.body.appendChild(contactsContainer);
+    contentDisplay.appendChild(contactsContainer);
+}
 
-    // FORMULAIRE
-    function createContact(){
-        contentDisplay.innerHTML = '';
+// FORMULAIRE
+function createContact(){
+    contentDisplay.innerHTML = '';
 
         const formContainer = document.createElement('section');
         formContainer.setAttribute("id", "formulaire");
@@ -209,7 +225,6 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log(contactsArray);
             writeXML(contactsArray);
         }); 
-
         // nom
         const inputNom = document.createElement('input');
         inputNom.setAttribute('type', 'text');
@@ -243,23 +258,23 @@ document.addEventListener('DOMContentLoaded', () => {
         // Ajouter le formulaire au conteneur
         formContainer.appendChild(form);
 
-        contentDisplay.appendChild(formContainer);
+    contentDisplay.appendChild(formContainer);
 
-        // Appliquer les styles du formulaire
-        formContainer.style.backgroundColor = '#f0f0f0'; 
-        formContainer.style.padding = '20px';
-        formContainer.style.borderRadius = '5px';
+    // Appliquer les styles du formulaire
+    formContainer.style.backgroundColor = '#f0f0f0'; 
+    formContainer.style.padding = '20px';
+    formContainer.style.borderRadius = '5px';
 
-        const inputs = formContainer.querySelectorAll('input');
-        inputs.forEach(input => {
-            input.style.width = '90%';
-            input.style.padding = '10px';
-            input.style.margin = '10px 0';
-            input.style.border = '1px solid #d32f2f';
-            input.style.borderRadius = '5px';
-            input.style.fontSize = '16px';
-            input.style.backgroundColor = '#fff'; 
-        });
+    const inputs = formContainer.querySelectorAll('input');
+    inputs.forEach(input => {
+        input.style.width = '90%';
+        input.style.padding = '10px';
+        input.style.margin = '10px 0';
+        input.style.border = '1px solid #d32f2f';
+        input.style.borderRadius = '5px';
+        input.style.fontSize = '16px';
+        input.style.backgroundColor = '#fff'; 
+    });
 
         const submitFormButton = formContainer.querySelector('button');
         submitFormButton.style.width = '100%';
@@ -273,48 +288,44 @@ document.addEventListener('DOMContentLoaded', () => {
         submitFormButton.style.cursor = 'pointer';
     }
     
-    // function creatNbContacts avec style
     function createNbContacts(){
         contentDisplay.innerHTML = '';
-
         //creation du container
         const nbContactsContainer = document.createElement("section");
         nbContactsContainer.setAttribute("id", "nbContactsContainer");
 
-        nbContactsContainer.style.backgroundColor = '#f0f0f0'; // Fond gris clair
-        nbContactsContainer.style.padding = '20px';
-        nbContactsContainer.style.borderRadius = '5px';
-    
-        const nbContact = document.createElement("p");
-        nbContact.innerHTML = `Vous avez <strong style="color: #d32f2f;">${contactsArray.length}</strong> contacts`;
-    
-        nbContactsContainer.appendChild(nbContact);
-    
-        // Le container est ajouté au body
-        //document.body.appendChild(nbContactsContainer);
-        contentDisplay.appendChild(nbContactsContainer);
-    }
+    nbContactsContainer.style.backgroundColor = '#f0f0f0'; // Fond gris clair
+    nbContactsContainer.style.padding = '20px';
+    nbContactsContainer.style.borderRadius = '5px';
 
-    monXMLParser("contacts.xml");
+    const nbContact = document.createElement("p");
+    nbContact.innerHTML = `Vous avez <strong style="color: #d32f2f;">${contactsArray.length}</strong> contacts`;
 
-    // Fonction pour convertir un tableau d'objets en XML
-    function convertToXML(array) {
-        let xml = '<contacts>\n';
+    nbContactsContainer.appendChild(nbContact);
 
-        array.forEach(contact => {
-            xml += '  <contact>\n';
-            xml += `    <nom>${contact.nom}</nom>\n`;
-            xml += `    <prenom>${contact.prenom}</prenom>\n`;
-            xml += `    <numero>${contact.numero}</numero>\n`;
-            xml += '  </contact>\n';
-        });
+    // Le container est ajouté au body
+    //document.body.appendChild(nbContactsContainer);
+    contentDisplay.appendChild(nbContactsContainer);
+}
 
-        xml += '</contacts>';
-        return xml;
-    }
+// Fonction pour convertir un tableau d'objets en XML
+function convertToXML(array) {
+    let xml = '<contacts>\n';
 
-    function writeXML(array){
-        const xmlContent = convertToXML(array);
+    array.forEach(contact => {
+        xml += '  <contact>\n';
+        xml += `    <nom>${contact.nom}</nom>\n`;
+        xml += `    <prenom>${contact.prenom}</prenom>\n`;
+        xml += `    <numero>${contact.numero}</numero>\n`;
+        xml += '  </contact>\n';
+    });
+
+    xml += '</contacts>';
+    return xml;
+}
+
+function writeXML(array){
+    const xmlContent = convertToXML(array);
 
         fetch('http://localhost:3000/write-xml', {
             method: 'POST',
