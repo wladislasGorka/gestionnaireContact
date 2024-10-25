@@ -95,20 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
     selectAction.style.backgroundColor = '#d32f2f'; 
     selectAction.style.color = '#fff';
 
-    // Gérer le changement d'option dans le menu déroulant
-    selectAction.addEventListener('change', (e) => {
-        const action = e.target.value;
-        if (action === 'list') {
-            createListeContacts();
-        } else if (action === 'add') {
-            createContact();
-        } else if (action === 'count') {
-            createNbContacts();
-        } else {
-            contentDisplay.innerHTML = ''; 
-        }
-    });
-
     async function monXMLParser(url) {
         try{
             const reponse = await fetch(url);
