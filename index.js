@@ -243,7 +243,7 @@ document.addEventListener('DOMContentLoaded', () => {
             input.style.fontSize = '16px';
             input.style.backgroundColor = '#fff'; 
         });
-
+         // style button 
         const submitFormButton = formContainer.querySelector('button');
         submitFormButton.style.width = '100%';
         submitFormButton.style.padding = '10px';
@@ -254,7 +254,8 @@ document.addEventListener('DOMContentLoaded', () => {
         submitFormButton.style.borderRadius = '5px';
         submitFormButton.style.fontSize = '16px';
         submitFormButton.style.cursor = 'pointer';
-    }
+      }
+     // fin style button
     
     function createNbContacts(){
         contentDisplay.innerHTML = '';
