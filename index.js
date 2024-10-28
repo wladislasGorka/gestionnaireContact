@@ -213,12 +213,6 @@ function createContact(){
 
     const formContainer = document.createElement('section');
     formContainer.setAttribute("id", "formulaire");
-/*     const br1 = document.createElement('br');
-    const br2 = document.createElement('br');
-    const br3 = document.createElement('br');
-    const br4 = document.createElement('br');
-    const br5 = document.createElement('br');
-    const br6 = document.createElement('br'); */
     const label1 = document.createElement('label');
     const label2 = document.createElement('label');
     const label3 = document.createElement('label');
@@ -228,6 +222,7 @@ function createContact(){
     // creation formulaire 
     const form = document.createElement('form');
     form.setAttribute('method', 'post');
+    form.style.display = 'grid'; // disposition grille 
     // Event Listener
     form.addEventListener("submit", function(event){
         event.preventDefault();
@@ -238,8 +233,9 @@ function createContact(){
         contactsArray.push(contact);
         console.log(contactsArray);
         writeXML(contactsArray);
-
         // Retour a la liste des contacts apres ajout
+ 
+        //renvoie onglet liste contact
         document.getElementById('actionSelect').value = 'list';
         createListeContacts();
     }); 
@@ -256,8 +252,8 @@ function createContact(){
     //numero
     const inputNumero = document.createElement('input');
     inputNumero.setAttribute('type', 'tel');
-    inputNumero.setAttribute('placeholder','06 00 00 00 00' )
-    inputNumero.setAttribute('pattern','[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}');
+    inputNumero.setAttribute('placeholder','06 00 00 00 00');//valeur ephemere a titre expemple
+    inputNumero.setAttribute('pattern','[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}');// impose une valeur d'écriture 
     inputNumero.setAttribute('id', 'numero');
     inputNumero.setAttribute('required', '');
     // Créer un bouton de soumission
@@ -266,17 +262,11 @@ function createContact(){
     submitButton.textContent = 'Valider';
     // Ajouter les champs au formulaire
     form.appendChild(label1);
-    //form.appendChild(br1);
     form.appendChild(inputNom);
-   // form.appendChild(br2);
     form.appendChild(label2);
-    //form.appendChild(br3);
     form.appendChild(inputPrenom);
-   // form.appendChild(br4);
     form.appendChild(label3);
-   // form.appendChild(br5);
     form.appendChild(inputNumero);
-   // form.appendChild(br6);
     form.appendChild(submitButton);
     // Ajouter le formulaire au conteneur
     formContainer.appendChild(form);
@@ -290,9 +280,9 @@ function createContact(){
 
     const inputs = formContainer.querySelectorAll('input');
     inputs.forEach(input => {
-        input.style.width = '90%';
+        input.style.width = '50%';
         input.style.padding = '10px';
-        input.style.margin = '10px 0';
+        input.style.margin = '10px auto';
         input.style.border = '1px solid #d32f2f';
         input.style.borderRadius = '5px';
         input.style.fontSize = '16px';
