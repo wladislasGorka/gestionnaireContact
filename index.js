@@ -213,12 +213,12 @@ function createContact(){
 
     const formContainer = document.createElement('section');
     formContainer.setAttribute("id", "formulaire");
-    const br1 = document.createElement('br');
+/*     const br1 = document.createElement('br');
     const br2 = document.createElement('br');
     const br3 = document.createElement('br');
     const br4 = document.createElement('br');
     const br5 = document.createElement('br');
-    const br6 = document.createElement('br');
+    const br6 = document.createElement('br'); */
     const label1 = document.createElement('label');
     const label2 = document.createElement('label');
     const label3 = document.createElement('label');
@@ -240,6 +240,7 @@ function createContact(){
         writeXML(contactsArray);
 
         // Retour a la liste des contacts apres ajout
+        document.getElementById('actionSelect').value = 'list';
         createListeContacts();
     }); 
     // nom
@@ -254,7 +255,9 @@ function createContact(){
     inputPrenom.setAttribute('required', '');
     //numero
     const inputNumero = document.createElement('input');
-    inputNumero.setAttribute('type', 'text');
+    inputNumero.setAttribute('type', 'tel');
+    inputNumero.setAttribute('placeholder','06 00 00 00 00' )
+    inputNumero.setAttribute('pattern','[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}');
     inputNumero.setAttribute('id', 'numero');
     inputNumero.setAttribute('required', '');
     // Créer un bouton de soumission
@@ -263,17 +266,17 @@ function createContact(){
     submitButton.textContent = 'Valider';
     // Ajouter les champs au formulaire
     form.appendChild(label1);
-    form.appendChild(br1);
+    //form.appendChild(br1);
     form.appendChild(inputNom);
-    form.appendChild(br2);
+   // form.appendChild(br2);
     form.appendChild(label2);
-    form.appendChild(br3);
+    //form.appendChild(br3);
     form.appendChild(inputPrenom);
-    form.appendChild(br4);
+   // form.appendChild(br4);
     form.appendChild(label3);
-    form.appendChild(br5);
+   // form.appendChild(br5);
     form.appendChild(inputNumero);
-    form.appendChild(br6);
+   // form.appendChild(br6);
     form.appendChild(submitButton);
     // Ajouter le formulaire au conteneur
     formContainer.appendChild(form);
