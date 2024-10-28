@@ -231,9 +231,12 @@ function createContact(){
     // Event Listener
     form.addEventListener("submit", function(event){
         event.preventDefault();
-        const contactNom = document.getElementById("nom").value;
-        const contactPrenom = document.getElementById("prenom").value;
-        const contactNumero = document.getElementById("numero").value;
+        let contactNom = document.getElementById("nom").value;
+        contactNom= contactNom[0].toUpperCase() + contactNom.slice(1);
+        let contactPrenom = document.getElementById("prenom").value;
+        contactPrenom= contactPrenom[0].toUpperCase() + contactPrenom.slice(1);
+        let contactNumero = document.getElementById("numero").value;
+        contactNumero= contactNumero.match(/.{2}/g).join(' ');
         const contact = { nom: contactNom , prenom :  contactPrenom , numero: contactNumero };
         contactsArray.push(contact);
         console.log(contactsArray);
@@ -256,8 +259,8 @@ function createContact(){
     //numero
     const inputNumero = document.createElement('input');
     inputNumero.setAttribute('type', 'tel');
-    inputNumero.setAttribute('placeholder','06 00 00 00 00' )
-    inputNumero.setAttribute('pattern','[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}');
+    inputNumero.setAttribute('placeholder','06 00 00 00 00');//valeur ephemere a titre expemple
+    inputNumero.setAttribute('pattern','[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}');// impose une valeur d'écriture 
     inputNumero.setAttribute('id', 'numero');
     inputNumero.setAttribute('required', '');
     // Créer un bouton de soumission
