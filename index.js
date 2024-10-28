@@ -234,7 +234,9 @@ function createContact(){
         console.log(contactsArray);
         writeXML(contactsArray);
         // Retour a la liste des contacts apres ajout
-        document.getElementById('actionSelect').value = 'list'; //renvoie onglet liste contact
+ 
+        //renvoie onglet liste contact
+        document.getElementById('actionSelect').value = 'list';
         createListeContacts();
     }); 
     // nom
